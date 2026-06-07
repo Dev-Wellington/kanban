@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <title>Kanban</title>
   </head>
   <body>
@@ -16,13 +17,16 @@
           <ul class="cards">
             <li class="card">
               <div class="card-header">
-                <img class="card-image" src="path/to/image.jpg" alt="Tarefa 1" />
+                <p class="card-status">A fazer</p>
                 <h3 class="card-title">Tarefa 1</h3>
               </div>
               <p class="card-description">Descrição da tarefa 1</p>
               <div class="card-footer">
-                <img class="card-icon" src="" alt="" />
-                <p class="date card-date"></p>
+                <div class="card-info">
+                  <img class="card-icon" src="" alt="" />
+                  <p class="date card-date"></p>
+                </div>
+                <p class="card-priority">Prioridade: Média</p>
               </div>
             </li>
           </ul>
@@ -41,5 +45,6 @@
         </div>
       </section>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>
