@@ -60,13 +60,11 @@ const renderizarCards = (array) => {
   document.getElementById("concluido").innerHTML = "";
 
   array.forEach((ordem) => {
-    
     const prioridadeFormatada =
       ordem.prioridade.charAt(0).toUpperCase() + ordem.prioridade.slice(1);
 
-    
     const cardHTML = `
-      <li class="card" id="os-${ordem.id}" draggable="true">
+      <li class="card" id="${ordem.id}" draggable="true">
         <div class="card-header">
           <p class="card-status">${nomesDosStatus[ordem.status]}</p>
           <h3 class="card-title">${ordem.titulo}</h3>
@@ -91,6 +89,13 @@ const renderizarCards = (array) => {
         `Erro: Coluna com ID '${ordem.status}' não encontrada no HTML.`,
       );
     }
+  });
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    card.addEventListener("dragstart", (e) => {
+      e.dataTransfer.setData('text/plain', e.target.id)
+      console.log( e.target.id)
+    });
   });
 };
 
