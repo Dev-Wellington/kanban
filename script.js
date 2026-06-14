@@ -99,4 +99,22 @@ const renderizarCards = (array) => {
   });
 };
 
+const colunas = document.querySelectorAll(".kanban-column")
+
+colunas.forEach((coluna)=>{
+    coluna.addEventListener("dragover", (e)=>{
+        e.preventDefault()
+    })
+    coluna.addEventListener("drop", (e)=>{
+        const idCard = e.dataTransfer.getData('text/plain')
+        const novoStatus = event.target.closest('.cards').id
+        const buscarId = ordensDeServico.find(ordem => ordem.id === Number(idCard))
+        if (buscarId){
+            buscarId.status = novoStatus
+            renderizarCards(ordensDeServico)
+        }
+    })
+})
+
+
 renderizarCards(ordensDeServico);
