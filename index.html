@@ -10,6 +10,22 @@
     <header>
       <h1>Gestão Técnica</h1>
     </header>
+    <dialog id="modal">
+      <form method="dialog">
+        <h2>Adicionar Nova Ordem de Serviço</h2>
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" required />
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" name="descricao" required></textarea>
+        <label for="prioridade">Prioridade:</label>
+        <select id="prioridade" name="prioridade" required>
+          <option value="baixa">Baixa</option>
+          <option value="media">Média</option>
+          <option value="alta">Alta</option>
+        </select>
+        <button type="submit">Adicionar</button>
+      </form>
+    </dialog>
     <main class="container">
       <section class="board">
         <div class="kanban-column">
