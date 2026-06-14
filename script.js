@@ -1,4 +1,4 @@
-const ordensDeServico = [
+let ordensDeServico = [
   {
     id: 1,
     titulo: "Formatação e Backup",
@@ -94,7 +94,7 @@ const renderizarCards = (array) => {
   cards.forEach((card) => {
     card.addEventListener("dragstart", (e) => {
       e.dataTransfer.setData('text/plain', e.target.id)
-      console.log( e.target.id)
+     
     });
   });
 };
@@ -106,15 +106,27 @@ colunas.forEach((coluna)=>{
         e.preventDefault()
     })
     coluna.addEventListener("drop", (e)=>{
+        e.preventDefault()
         const idCard = e.dataTransfer.getData('text/plain')
-        const novoStatus = event.target.closest('.cards').id
+        const novoStatus = e.target.closest('.cards').id
         const buscarId = ordensDeServico.find(ordem => ordem.id === Number(idCard))
         if (buscarId){
             buscarId.status = novoStatus
             renderizarCards(ordensDeServico)
         }
+        salvarDados()
     })
 })
 
+const salvarDados = () => {
+    localStorage.setItem("ordensDeServico", JSON.stringify(ordensDeServico));
+}
 
+const carregarDados = () => {
+    return JSON.parse(localStorage.getItem("ordensDeServico"))
+}
+
+if (localStorage.getItem("ordensDeServico")) {
+    ordensDeServico = carregarDados()
+}
 renderizarCards(ordensDeServico);
