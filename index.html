@@ -23,27 +23,63 @@
           <option value="media">Média</option>
           <option value="alta">Alta</option>
         </select>
-        <button type="submit">Adicionar</button>
+        <button type="submit" id="btn-adicionar">Adicionar</button>
       </form>
     </dialog>
     <main class="container">
       <section class="board">
-        <div class="kanban-column">
-          <h2>Fila</h2>
+        <section class="kanban-column">
+          <div class="column-header">
+            <h2>Fila</h2>
+            <button
+              class="btn-add"
+              data-coluna="fila"
+              aria-label="Adicionar na Fila"
+            >
+              <img src="add.svg" alt="Botão adicionar" />
+            </button>
+          </div>
           <ul class="cards" id="fila"></ul>
-        </div>
-        <div class="kanban-column">
-          <h2>Bancada</h2>
+        </section>
+        <section class="kanban-column">
+          <div class="column-header">
+            <h2>Bancada</h2>
+            <button
+              class="btn-add"
+              data-coluna="bancada"
+              aria-label="Adicionar na Bancada"
+            >
+              <img src="add.svg" alt="Botão adicionar" />
+            </button>
+          </div>
           <ul class="cards" id="bancada"></ul>
-        </div>
-        <div class="kanban-column">
-          <h2>Aguardando peça</h2>
+        </section>
+        <section class="kanban-column">
+          <div class="column-header">
+            <h2>Aguardando peça</h2>
+            <button
+              class="btn-add"
+              data-coluna="aguardando-peca"
+              aria-label="Adicionar em Aguardando peça"
+            >
+              <img src="add.svg" alt="Botão adicionar" />
+            </button>
+          </div>
           <ul class="cards" id="aguardando-peca"></ul>
-        </div>
-        <div class="kanban-column">
-          <h2>Concluído</h2>
+        </section>
+        <section class="kanban-column">
+          <div class="column-header">
+            <h2>Concluído</h2>
+            <button
+              class="btn-add"
+              data-coluna="concluido"
+              aria-label="Adicionar em Concluído"
+            >
+              <img src="add.svg" alt="Botão adicionar" />
+            </button>
+          </div>
           <ul class="cards" id="concluido"></ul>
-        </div>
+        </section>
       </section>
     </main>
     <script src="script.js"></script>
