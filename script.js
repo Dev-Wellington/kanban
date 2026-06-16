@@ -45,17 +45,40 @@ let ordensDeServico = [
     dataEntrada: "2026-06-02",
   },
 ];
-const btnAbrirModal = document.querySelector(".btn-add")
-const btnAdicionar = document.getElementById("btn-adicionar");
-const btnFecharModal = document.querySelector(".btn-close")
+const btnAbrirModal = document.querySelectorAll(".btn-add");
+const btnAdicionarCard = document.getElementById("btn-adicionar");
+const btnFecharModal = document.querySelector(".btn-close");
+const formCriarOs = document.getElementById("form-os");
 const modal = document.getElementById("modal");
 btnFecharModal.addEventListener("click", () => {
-    modal.close()
-})
-btnAbrirModal.addEventListener("click", () => {
-    modal.showModal()
-})
+  modal.close();
+});
+btnAbrirModal.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    modal.showModal();
+  });
+});
 
+formCriarOs.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const dadoTitulo = document.getElementById("titulo").value;
+  const dadoDescricao = document.getElementById("descricao").value;
+  const dadoPrioridade = document.getElementById("prioridade").value;
+  const dataHoje = new Date().toLocaleDateString("pt-BR");
+  const novaOrdem = {
+    id: Date.now(),
+    titulo: dadoTitulo,
+    descricao: dadoDescricao,
+    status: "fila",
+    prioridade: dadoPrioridade,
+    dataEntrada: dataHoje,
+  };
+    ordensDeServico.push(novaOrdem);
+    renderizarCards(ordensDeServico);
+    salvarDados();
+    formCriarOs.reset();
+    modal.close();
+});
 
 const nomesDosStatus = {
   fila: "Fila de Triagem",
@@ -104,47 +127,41 @@ const renderizarCards = (array) => {
   const cards = document.querySelectorAll(".card");
   cards.forEach((card) => {
     card.addEventListener("dragstart", (e) => {
-      e.dataTransfer.setData('text/plain', e.target.id)
-     
+      e.dataTransfer.setData("text/plain", e.target.id);
     });
   });
 };
 
-const colunas = document.querySelectorAll(".kanban-column")
+const colunas = document.querySelectorAll(".kanban-column");
 
-colunas.forEach((coluna)=>{
-    coluna.addEventListener("dragover", (e)=>{
-        e.preventDefault()
-    })
-    coluna.addEventListener("drop", (e)=>{
-        e.preventDefault()
-        const idCard = e.dataTransfer.getData('text/plain')
-        const novoStatus = e.target.closest('.cards').id
-        const buscarId = ordensDeServico.find(ordem => ordem.id === Number(idCard))
-        if (buscarId){
-            buscarId.status = novoStatus
-            renderizarCards(ordensDeServico)
-        }
-        salvarDados()
-    })
-})
+colunas.forEach((coluna) => {
+  coluna.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  });
+  coluna.addEventListener("drop", (e) => {
+    e.preventDefault();
+    const idCard = e.dataTransfer.getData("text/plain");
+    const novoStatus = e.target.closest(".cards").id;
+    const buscarId = ordensDeServico.find(
+      (ordem) => ordem.id === Number(idCard),
+    );
+    if (buscarId) {
+      buscarId.status = novoStatus;
+      renderizarCards(ordensDeServico);
+    }
+    salvarDados();
+  });
+});
 
 const salvarDados = () => {
-    localStorage.setItem("ordensDeServico", JSON.stringify(ordensDeServico));
-}
+  localStorage.setItem("ordensDeServico", JSON.stringify(ordensDeServico));
+};
 
 const carregarDados = () => {
-    return JSON.parse(localStorage.getItem("ordensDeServico"))
-}
-
-
-
-
-
-
-
+  return JSON.parse(localStorage.getItem("ordensDeServico"));
+};
 
 if (localStorage.getItem("ordensDeServico")) {
-    ordensDeServico = carregarDados()
+  ordensDeServico = carregarDados();
 }
 renderizarCards(ordensDeServico);
