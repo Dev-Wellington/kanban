@@ -12,7 +12,13 @@
     </header>
     <dialog id="modal">
       <form method="dialog">
-        <h2>Adicionar Nova Ordem de Serviço</h2>
+        <header class="modal-header">
+          <h2>Adicionar Nova Ordem de Serviço</h2>
+          <button type="button" class="btn-close" aria-label="Fechar modal">
+            <img src="icons/close.svg" alt="">
+          </button>
+        </header>
+        
         <label for="titulo">Título:</label>
         <input type="text" id="titulo" name="titulo" required />
         <label for="descricao">Descrição:</label>
@@ -36,7 +42,7 @@
               data-coluna="fila"
               aria-label="Adicionar na Fila"
             >
-              <img src="add.svg" alt="Botão adicionar" />
+              <img src="icons/add.svg" alt="Botão adicionar" />
             </button>
           </div>
           <ul class="cards" id="fila"></ul>
@@ -49,7 +55,7 @@
               data-coluna="bancada"
               aria-label="Adicionar na Bancada"
             >
-              <img src="add.svg" alt="Botão adicionar" />
+              <img src="icons/add.svg" alt="Botão adicionar" />
             </button>
           </div>
           <ul class="cards" id="bancada"></ul>
@@ -62,7 +68,7 @@
               data-coluna="aguardando-peca"
               aria-label="Adicionar em Aguardando peça"
             >
-              <img src="add.svg" alt="Botão adicionar" />
+              <img src="icons/add.svg" alt="Botão adicionar" />
             </button>
           </div>
           <ul class="cards" id="aguardando-peca"></ul>
@@ -75,7 +81,7 @@
               data-coluna="concluido"
               aria-label="Adicionar em Concluído"
             >
-              <img src="add.svg" alt="Botão adicionar" />
+              <img src="icons/add.svg" alt="Botão adicionar" />
             </button>
           </div>
           <ul class="cards" id="concluido"></ul>
