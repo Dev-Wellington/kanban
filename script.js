@@ -45,6 +45,13 @@ let ordensDeServico = [
     dataEntrada: "2026-06-02",
   },
 ];
+const btnAdicionarCard = document.querySelector(".btn-add")
+const btnAdicionar = document.getElementById("btn-adicionar");
+const modal = document.getElementById("modal");
+btnAdicionarCard.addEventListener("click", () => {
+    modal.showModal()
+})
+
 
 const nomesDosStatus = {
   fila: "Fila de Triagem",
@@ -72,7 +79,7 @@ const renderizarCards = (array) => {
         <p class="card-description">${ordem.descricao}</p>
         <div class="card-footer">
           <div class="card-info">
-            <img class="card-icon" src="flag.svg" alt="Data de entrada" />
+            <img class="card-icon" src="icons/flag.svg" alt="Data de entrada" />
             <p class="date card-date">${ordem.dataEntrada}</p>
           </div>
           <p class="card-priority">Prioridade: ${prioridadeFormatada}</p>
@@ -125,6 +132,13 @@ const salvarDados = () => {
 const carregarDados = () => {
     return JSON.parse(localStorage.getItem("ordensDeServico"))
 }
+
+
+
+
+
+
+
 
 if (localStorage.getItem("ordensDeServico")) {
     ordensDeServico = carregarDados()
