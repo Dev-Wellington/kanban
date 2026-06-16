@@ -45,11 +45,13 @@ let ordensDeServico = [
     dataEntrada: "2026-06-02",
   },
 ];
+let colunaSelecionada ="";
 const btnAbrirModal = document.querySelectorAll(".btn-add");
 const btnAdicionarCard = document.getElementById("btn-adicionar");
 const btnFecharModal = document.querySelector(".btn-close");
 const formCriarOs = document.getElementById("form-os");
 const modal = document.getElementById("modal");
+
 btnFecharModal.addEventListener("click", () => {
   modal.close();
 });
