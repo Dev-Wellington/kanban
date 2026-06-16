@@ -47,7 +47,11 @@ let ordensDeServico = [
 ];
 const btnAdicionarCard = document.querySelector(".btn-add")
 const btnAdicionar = document.getElementById("btn-adicionar");
+const btnFecharModal = document.querySelector(".btn-close")
 const modal = document.getElementById("modal");
+btnFecharModal.addEventListener("click", () => {
+    modal.close()
+})
 btnAdicionarCard.addEventListener("click", () => {
     modal.showModal()
 })
