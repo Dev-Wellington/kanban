@@ -103,7 +103,10 @@ const renderizarCards = (array) => {
     const cardHTML = `
       <li class="card" id="${ordem.id}" draggable="true">
         <div class="card-header">
-          <p class="card-status">${nomesDosStatus[ordem.status]}</p>
+        <div class="card-header-actions">
+        <p class="card-status">${nomesDosStatus[ordem.status]}</p>
+        <button class="btn-excluir"><img src="icons/trash.svg" alt="Excluir ordem de serviço" /></button>
+        </div>
           <h3 class="card-title">${ordem.titulo}</h3>
         </div>
         <p class="card-description">${ordem.descricao}</p>
