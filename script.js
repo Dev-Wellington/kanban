@@ -56,7 +56,8 @@ btnFecharModal.addEventListener("click", () => {
   modal.close();
 });
 btnAbrirModal.forEach((btn) => {
-  btn.addEventListener("click", () => {
+  btn.addEventListener("click", (e) => {
+    colunaSelecionada = e.currentTarget.dataset.coluna;
     modal.showModal();
   });
 });
@@ -71,7 +72,7 @@ formCriarOs.addEventListener("submit", (e) => {
     id: Date.now(),
     titulo: dadoTitulo,
     descricao: dadoDescricao,
-    status: "fila",
+    status: colunaSelecionada,
     prioridade: dadoPrioridade,
     dataEntrada: dataHoje,
   };
