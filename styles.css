@@ -182,7 +182,29 @@ dialog#modal::backdrop {
   transform: translateY(0);
   opacity: 0.96;
 }
-
+.card-header-actions{
+    display: flex;  
+    align-items: center;
+    justify-content: space-between;
+}
+.btn-excluir {
+    border: none;
+    background: transparent;
+    padding: 4px;
+    transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+.btn-excluir img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+.btn-excluir:hover {
+    cursor:pointer;
+    transform: scale(1.1);
+}
 .container {
   width: min(1600px, calc(100% - 32px));
   margin: 28px auto 0;
