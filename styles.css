@@ -207,12 +207,14 @@ dialog#modal::backdrop {
 }
 .container {
   width: min(1600px, calc(100% - 32px));
+
   margin: 28px auto 0;
 }
 
 .board {
   display: flex;
   align-items: flex-start;
+  height: 80dvh;
   gap: 18px;
   overflow-x: auto;
   padding: 8px 4px 20px;
