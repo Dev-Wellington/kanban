@@ -1,4 +1,4 @@
-let ordensDeServico = [{}];
+let ordensDeServico = [];
 let colunaSelecionada = "";
 const btnAbrirModal = document.querySelectorAll(".btn-add");
 const btnAdicionarCard = document.getElementById("btn-adicionar");
